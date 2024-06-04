@@ -949,4 +949,39 @@ git checkout main
 git push -u origin main
 ```
 
+# 16 `work/abikesa_statacurl.sh`
+
+```bash
+# remote work
+# Download the remote script using curl
+curl -O https://github.com/abikesa/do/raw/main/hello.do
+
+# Run Stata in batch mode with the downloaded script
+export PATH=$PATH:/applications/stata/statamp.app/contents/macos/
+stata-mp -b hello.do
+```
+
+# 17 `work/bash.sh`
+
+```bash
+#!/bin/bash
+
+# User input or some other dynamic data
+dynamic_part=""
+
+# Some conditional logic to decide the final directory
+if [ "$dynamic_part" == "cst" ]; then
+    dir_to_go="./../$dynamic_part"
+else
+    dir_to_go="~/dropbox/1f.ἡἔρις,κ/1.ontology/"
+fi
+
+# Now, we use eval and echo to dynamically generate the directory path
+cd $(eval echo $dir_to_go)
+jb build git2
+
+```
+
+
+
 
