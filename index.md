@@ -1039,6 +1039,75 @@ jb build bloc
 
 These steps should help you resolve the package availability issues and proceed with building your Jupyter Book.
 
+# 19 `git config --global credential`
 
+It looks like you're encountering an issue with pushing your changes to the GitHub repository due to an SSL error. Here are some steps to troubleshoot and resolve the issue:
+
+### Check Your GitHub Credentials
+
+1. **Re-authenticate with GitHub**:
+   - Ensure you're logged in with the correct GitHub account.
+   - Open the terminal and run:
+     ```bash
+     git config --global credential.helper cache
+     git credential-cache exit
+     ```
+
+2. **Clear Cached Credentials**:
+   - Clear any cached credentials by running:
+     ```bash
+     git credential-cache exit
+     ```
+
+### SSL/TLS Configuration
+
+3. **Check SSL/TLS Configuration**:
+   - Modify the Git SSL verification settings. Sometimes, the SSL certificate verification might cause issues. Temporarily disable SSL verification to test:
+     ```bash
+     git config --global http.sslVerify false
+     ```
+
+4. **Update Git Configuration**:
+   - Update your Git configuration to use a more robust SSL backend:
+     ```bash
+     git config --global http.sslBackend openssl
+     ```
+
+5. **Re-enable SSL Verification**:
+   - If disabling SSL verification works, re-enable it to maintain security:
+     ```bash
+     git config --global http.sslVerify true
+     ```
+
+### Network Configuration
+
+6. **Network Issues**:
+   - Check your network connection. A weak or unstable connection might cause this error. Try pushing your changes from a different network.
+
+### Large File Handling
+
+7. **Reduce Push Size** (`skipped this`): 
+   - If your push contains large files, consider reducing the size of the push by using Git LFS (Large File Storage):
+     ```bash
+     git lfs install
+     git lfs track "*.your-large-file-type"
+     git add .gitattributes
+     git add your-large-file
+     git commit -m "Add large file with Git LFS"
+     git push origin main
+     ```
+
+### Retry Push
+
+8. **Retry the Push**:
+   - After trying the above steps, retry pushing your changes:
+     ```bash
+     git push origin main
+     ```
+
+9. Repeat step `# 2` above: `work/abikesa_jbb_https.sh`
+   - I can confirm that this worked in the outlined 18 -> 19 -> 2 sequence :)
+
+By following these steps, you should be able to resolve the SSL error and successfully push your changes to the GitHub repository. If the issue persists, you might need to check for updates or reinstall Git and related tools.
 
 
