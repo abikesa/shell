@@ -982,6 +982,63 @@ jb build git2
 
 ```
 
+# 18 `jb build bloc/denotas`
+
+Since `jupyter-client` cannot be found in the specified channels, let's try to resolve the issue by installing it via pip, which might help us bypass the package resolution problems in conda.
+
+First, let's ensure that `pip` is available in your conda environment and then use it to install the necessary packages:
+
+1. **Install `jupyter-client` using pip**:
+   ```bash
+   pip install jupyter-client
+   ```
+
+2. **Install `nbclient` using pip**:
+   ```bash
+   pip install nbclient
+   ```
+
+3. **Install `jupyter` using pip**:
+   ```bash
+   pip install jupyter
+   ```
+
+After installing the required packages, try to register your environment as a Jupyter kernel and then build your Jupyter Book again:
+
+4. **Register the kernel**:
+   ```bash
+   python -m ipykernel install --user --name=myenv --display-name "Python (myenv)"
+   ```
+
+5. **Build the Jupyter Book**:
+   ```bash
+   jb build bloc
+   ```
+
+Here are the steps consolidated:
+
+```bash
+# Activate your environment
+conda activate /Users/d/Documents/github/myenv
+
+# Install jupyter-client using pip
+pip install jupyter-client
+
+# Install nbclient using pip
+pip install nbclient
+
+# Install jupyter using pip
+pip install jupyter
+
+# Register the kernel
+python -m ipykernel install --user --name=myenv --display-name "Python (myenv)"
+
+# Build the Jupyter Book
+jb build bloc
+```
+
+These steps should help you resolve the package availability issues and proceed with building your Jupyter Book.
+
 
 
 
