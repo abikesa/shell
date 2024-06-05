@@ -1544,3 +1544,15 @@ This issue might be related to network instability or SSH key configuration.
    ```
 
 Following these steps should help resolve the issues with the Jupyter Book build and pushing to GitHub. If you encounter further issues, please provide the specific error messages for additional assistance.
+
+# 25 `iframe` & `source`
+
+The `src` attribute in an `<iframe>` element stands for "source." It specifies the URL of the document or content that you want to embed within the iframe. Essentially, it tells the browser where to find the content that will be displayed inside the iframe.
+
+Here is the `src` attribute in the context of an `<iframe>` element:
+
+```html
+<iframe src="https://www.example.com" width="600" height="400"></iframe>
+```
+
+In this example, the iframe will load and display the content from "https://www.example.com".
