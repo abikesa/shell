@@ -1110,4 +1110,49 @@ It looks like you're encountering an issue with pushing your changes to the GitH
 
 By following these steps, you should be able to resolve the SSL error and successfully push your changes to the GitHub repository. If the issue persists, you might need to check for updates or reinstall Git and related tools.
 
+# 20 VSCode Credential Madness
 
+To change the GitHub account you're using in VSCode, you can follow these steps:
+
+1. **Sign Out from GitHub in VSCode**:
+   - Open VSCode.
+   - Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS) to open the Command Palette.
+   - Type `Sign Out` and select `GitHub: Sign Out`.
+   - This will sign you out of your current GitHub account.
+
+2. **Remove Old Credentials**:
+   - Open a terminal or command prompt.
+   - Run the following command to clear any cached credentials:
+     ```bash
+     git credential-cache exit
+     ```
+
+3. **Clear Git Credentials from Credential Manager**:
+   - On **Windows**:
+     - Open the Credential Manager (Control Panel > User Accounts > Credential Manager).
+     - Look for entries related to GitHub and remove them.
+   - On **macOS**:
+     - Open the Keychain Access application.
+     - Search for `github.com` and delete any related entries.
+   - On **Linux**:
+     - Credentials are often stored in a file called `~/.git-credentials`. You can edit this file to remove old credentials.
+
+4. **Sign In to New GitHub Account in VSCode**:
+   - Open VSCode.
+   - Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS) to open the Command Palette.
+   - Type `GitHub: Sign In` and select it.
+   - Follow the prompts to sign in with your new GitHub account.
+
+5. **Update Remote URL to Use New Account**:
+   - If you are switching to a new account, you might need to update the remote URL of your repository:
+     ```bash
+     git remote set-url origin https://github.com/newusername/repository.git
+     ```
+
+6. **Push Changes Using New Account**:
+   - Once signed in with the new account, try pushing your changes again:
+     ```bash
+     git push origin main
+     ```
+
+By following these steps, you should be able to switch your GitHub account in VSCode and push your changes using the new account credentials. Let me know if you encounter any issues or need further assistance!
