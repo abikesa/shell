@@ -1250,3 +1250,132 @@ Sure, here’s a coherent step-by-step guide to setting up a Python virtual envi
    ```
 
 By following these steps, you should have a fully functioning Python development environment in VSCode on your new Mac laptop. If you encounter any issues during the setup, feel free to ask for further assistance!
+
+# 22 `pip install`
+
+To simplify the installation of multiple packages, you can create a script that installs all the required packages at once. Here’s how you can do it:
+
+1. **Create a Requirements File:**
+   Create a file named `requirements.txt` and list all the packages you want to install. For example:
+
+   ```txt
+   numpy
+   matplotlib
+   scipy
+   pandas
+   ipykernel
+   requests
+   statsmodels
+   geopandas
+   networkx
+   ```
+
+2. **Install Packages Using the Requirements File:**
+   You can then install all the packages listed in the `requirements.txt` file with a single command. Here’s how you can do it:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### Step-by-Step Instructions:
+
+1. **Create and Activate a Virtual Environment:**
+
+   ```bash
+   cd /Users/d/Documents/GitHub
+   python3 -m venv myenv
+   source myenv/bin/activate
+   ```
+
+2. **Create a Requirements File:**
+
+   Create a file named `requirements.txt` in your project directory and add the following content:
+
+   ```txt
+   numpy
+   matplotlib
+   scipy
+   pandas
+   ipykernel
+   requests
+   statsmodels
+   geopandas
+   networkx
+   ```
+
+3. **Install Packages Using the Requirements File:**
+
+   Run the following command to install all the packages:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Add the Virtual Environment to Jupyter:**
+
+   After installing the packages, add your virtual environment to Jupyter:
+
+   ```bash
+   python -m ipykernel install --name=myenv --display-name "Python (myenv)"
+   ```
+
+### Example Script
+
+Here’s an example script (`setup_env.sh`) that you can run to automate these steps:
+
+```bash
+#!/bin/bash
+
+# Navigate to the project directory
+cd /Users/d/Documents/GitHub
+
+# Remove the existing virtual environment if it exists
+rm -rf myenv
+
+# Create a new virtual environment
+python3 -m venv myenv
+
+# Activate the virtual environment
+source myenv/bin/activate
+
+# Create a requirements file
+cat <<EOT > requirements.txt
+numpy
+matplotlib
+scipy
+pandas
+ipykernel
+requests
+statsmodels
+geopandas
+networkx
+EOT
+
+# Install the required packages
+pip install -r requirements.txt
+
+# Add the virtual environment to Jupyter
+python -m ipykernel install --name=myenv --display-name "Python (myenv)"
+
+# Clean up
+rm requirements.txt
+
+echo "Setup completed successfully!"
+```
+
+To run the script:
+
+1. Save the script as `setup_env.sh`.
+2. Make it executable:
+
+   ```bash
+   chmod +x setup_env.sh
+   ```
+
+3. Run the script:
+
+   ```bash
+   ./setup_env.sh
+   ```
+
+This script will set up your virtual environment, install the required packages, and add the environment to Jupyter.
