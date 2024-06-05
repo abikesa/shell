@@ -1556,3 +1556,56 @@ Here is the `src` attribute in the context of an `<iframe>` element:
 ```
 
 In this example, the iframe will load and display the content from "https://www.example.com".
+
+#
+
+Great, you've successfully authenticated with GitHub using your SSH key. Now let's address the remaining issues:
+
+### 1. Jupyter Book Build Errors
+
+First, make sure all required packages are installed in your virtual environment:
+
+```bash
+source ~/documents/github/myenv/bin/activate
+pip install jupyter jupyterlab nbclient sphinx myst-nb stata_kernel
+```
+
+Next, ensure the `stata_kernel` is properly installed and configured. Follow the [stata_kernel installation instructions](https://kylebarron.github.io/stata_kernel/getting_started/).
+
+Then, rebuild your Jupyter Book:
+
+```bash
+jb build ~/documents/github/work
+```
+
+### 2. GitHub Push Issues
+
+Now that SSH is correctly configured, you should be able to push your changes to GitHub. Use the following commands:
+
+```bash
+git add .
+git commit -m "vscode credentials first, then ssh"
+git push origin main
+```
+
+### Rebuild Jupyter Book and Push Changes to GitHub
+
+1. **Install Required Dependencies:**
+   ```bash
+   source ~/documents/github/myenv/bin/activate
+   pip install jupyter jupyterlab nbclient sphinx myst-nb stata_kernel
+   ```
+
+2. **Rebuild Jupyter Book:**
+   ```bash
+   jb build ~/documents/github/work
+   ```
+
+3. **Push Changes to GitHub:**
+   ```bash
+   git add .
+   git commit -m "Rebuild Jupyter Book and resolve issues"
+   git push origin main
+   ```
+
+Following these steps should help you rebuild your Jupyter Book and successfully push your changes to GitHub. If you encounter any further issues, please provide the specific error messages for additional assistance.
