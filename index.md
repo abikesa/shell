@@ -1379,3 +1379,95 @@ To run the script:
    ```
 
 This script will set up your virtual environment, install the required packages, and add the environment to Jupyter.
+
+# 23 `work/abikesa_jbb_ssh.sh`: the saga continue after `#1` above
+
+The error message indicates that there are several issues encountered during the build process and when pushing to the repository. Here’s a step-by-step guide to address these issues:
+
+### 1. Handling Jupyter Book Build Errors
+The primary error is due to the kernel dying before replying to `kernel_info`. This could be due to a misconfigured kernel or missing dependencies. 
+
+#### Steps to Resolve:
+
+1. **Install Missing Dependencies:**
+   Ensure that all required dependencies are installed in your virtual environment.
+
+   ```bash
+   pip install jupyter jupyterlab nbclient sphinx myst-nb
+   ```
+
+2. **Check the Kernel Configuration:**
+   Ensure that the `stata_kernel` and other required kernels are installed correctly. You can install the `stata_kernel` by following its [installation instructions](https://kylebarron.github.io/stata_kernel/getting_started/).
+
+3. **Rebuild the Jupyter Book:**
+   After ensuring all dependencies are installed, try rebuilding the Jupyter Book.
+
+   ```bash
+   jb build /Users/d/Documents/GitHub/work
+   ```
+
+### 2. Addressing GitHub Push Issues
+The error message indicates a failure when pushing to GitHub due to an unexpected disconnect.
+
+#### Steps to Resolve:
+
+1. **Check SSH Key Configuration:**
+   Ensure that your SSH key is correctly configured with GitHub.
+
+   ```bash
+   ssh-add ~/.ssh/id_workflow
+   ssh -T git@github.com
+   ```
+
+   The second command should result in a successful authentication message if your SSH key is set up correctly.
+
+2. **Push Changes Again:**
+   Retry pushing your changes to GitHub.
+
+   ```bash
+   git push origin main
+   ```
+
+3. **Check Network Connection:**
+   Ensure that your network connection is stable and retry the push operation. If the problem persists, try using HTTPS instead of SSH for pushing.
+
+   ```bash
+   git remote set-url origin https://github.com/abikesa/flow.git
+   git push origin main
+   ```
+
+### Summary of Steps
+
+1. **Install Required Dependencies:**
+   Ensure all necessary packages are installed in your virtual environment.
+
+   ```bash
+   source /Users/d/Documents/GitHub/myenv/bin/activate
+   pip install jupyter jupyterlab nbclient sphinx myst-nb stata_kernel
+   ```
+
+2. **Rebuild Jupyter Book:**
+   Retry building the Jupyter Book after installing dependencies.
+
+   ```bash
+   jb build /Users/d/Documents/GitHub/work
+   ```
+
+3. **Check SSH Key Configuration and Push:**
+   Ensure SSH keys are configured correctly and push changes to GitHub.
+
+   ```bash
+   ssh-add ~/.ssh/id_workflow
+   ssh -T git@github.com
+   git push origin main
+   ```
+
+4. **Use HTTPS for Git Push (if needed):**
+   If SSH continues to fail, switch to HTTPS for Git operations.
+
+   ```bash
+   git remote set-url origin https://github.com/abikesa/flow.git
+   git push origin main
+   ```
+
+Following these steps should help resolve the issues with the Jupyter Book build and pushing to GitHub. If you encounter further issues, please provide the specific error messages for additional assistance.
