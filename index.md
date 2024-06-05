@@ -1110,7 +1110,7 @@ It looks like you're encountering an issue with pushing your changes to the GitH
 
 By following these steps, you should be able to resolve the SSL error and successfully push your changes to the GitHub repository. If the issue persists, you might need to check for updates or reinstall Git and related tools.
 
-# 20 VSCode Credential Madness
+# 20 `git credential-cache exit`
 
 To change the GitHub account you're using in VSCode, you can follow these steps:
 
