@@ -1380,7 +1380,7 @@ To run the script:
 
 This script will set up your virtual environment, install the required packages, and add the environment to Jupyter.
 
-# 23 `work/abikesa_jbb_ssh.sh`: the saga continue after `#1` above
+# 23 `work/abikesa_jbb_ssh.sh` again!
 
 The error message indicates that there are several issues encountered during the build process and when pushing to the repository. Here’s a step-by-step guide to address these issues:
 
@@ -1557,7 +1557,7 @@ Here is the `src` attribute in the context of an `<iframe>` element:
 
 In this example, the iframe will load and display the content from "https://www.example.com".
 
-#
+# 26 `pip install`
 
 Great, you've successfully authenticated with GitHub using your SSH key. Now let's address the remaining issues:
 
@@ -1609,3 +1609,83 @@ git push origin main
    ```
 
 Following these steps should help you rebuild your Jupyter Book and successfully push your changes to GitHub. If you encounter any further issues, please provide the specific error messages for additional assistance.
+
+# 27 `git config --global http.postBuffer 524288000`
+
+This issue often arises due to network problems, server-side restrictions, or SSH configuration issues. Here are some steps to troubleshoot and potentially resolve the problem:
+
+### 1. Verify SSH Configuration
+
+Ensure that your SSH key is correctly configured and added to the SSH agent:
+
+```bash
+ssh-add -l
+```
+
+If your key is not listed, add it again:
+
+```bash
+ssh-add ~/.ssh/id_workflow
+```
+
+### 2. Increase Git Buffer Size
+
+Sometimes, increasing the Git buffer size can resolve issues related to large pushes:
+
+```bash
+git config --global http.postBuffer 524288000
+```
+
+### 3. Check Your Network Connection
+
+Ensure you have a stable internet connection. If you're on a VPN or behind a proxy, try disabling it and pushing again.
+
+### 4. Use SSH Verbose Mode
+
+Enable verbose mode to get more information about the SSH connection:
+
+```bash
+GIT_SSH_COMMAND="ssh -v" git push origin main
+```
+
+### 5. Split Your Push
+
+If the repository is large, consider pushing smaller parts:
+
+```bash
+git add .
+git commit -m "Partial commit"
+git push origin main
+```
+
+### 6. Retry the Push
+
+Sometimes, simply retrying the push can work:
+
+```bash
+git push origin main
+```
+
+### 7. Check GitHub Status
+
+Ensure GitHub is not experiencing any issues by checking the [GitHub status page](https://www.githubstatus.com/).
+
+### Summary
+
+1. Ensure SSH key is added to the agent.
+2. Increase Git buffer size.
+3. Check network connection.
+4. Use SSH verbose mode for more details.
+5. Split large pushes into smaller commits.
+6. Retry the push.
+7. Check GitHub status.
+
+### Example Commands
+
+```bash
+ssh-add ~/.ssh/id_workflow
+git config --global http.postBuffer 524288000
+GIT_SSH_COMMAND="ssh -v" git push origin main
+```
+
+If you still encounter issues after trying these steps, please share any additional output or error messages for further assistance.
