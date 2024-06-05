@@ -1689,3 +1689,73 @@ GIT_SSH_COMMAND="ssh -v" git push origin main
 ```
 
 If you still encounter issues after trying these steps, please share any additional output or error messages for further assistance.
+
+# 28 `bash`
+
+The "unexpected disconnect while reading sideband packet" error indicates that there might be an issue on GitHub's end or with the network connection between your local machine and GitHub's servers. Here are a few additional steps you can try to resolve the issue:
+
+### 1. Reduce Pack Size
+
+Sometimes large pack files can cause issues. Try reducing the pack size:
+
+```bash
+git config --global pack.windowMemory "100m"
+git config --global pack.packSizeLimit "100m"
+git config --global pack.threads "1"
+```
+
+### 2. Use HTTP/HTTPS Instead of SSH
+
+If SSH continues to cause issues, you might want to try using HTTPS to push the changes:
+
+```bash
+git remote set-url origin https://github.com/abikesa/flow.git
+git push -u origin main
+```
+
+### 3. Ensure Network Stability
+
+Make sure your network connection is stable and not experiencing any interruptions. If possible, try switching to a different network or disabling VPN/proxy.
+
+### 4. Use Verbose Mode for More Information
+
+Run the push command with increased verbosity to gather more information:
+
+```bash
+GIT_TRACE_PACKET=1 GIT_TRACE=1 GIT_CURL_VERBOSE=1 git push origin main
+```
+
+### 5. Split Your Commit
+
+If you have a very large commit, try splitting it into smaller commits and pushing them incrementally:
+
+```bash
+git reset --soft HEAD~1
+git add -p  # or git add -i
+git commit -m "Part 1 of the changes"
+git push origin main
+```
+
+### Example Commands
+
+```bash
+# Reduce pack size
+git config --global pack.windowMemory "100m"
+git config --global pack.packSizeLimit "100m"
+git config --global pack.threads "1"
+
+# Switch to HTTPS
+git remote set-url origin https://github.com/abikesa/flow.git
+git push -u origin main
+
+# Push with verbose mode
+GIT_TRACE_PACKET=1 GIT_TRACE=1 GIT_CURL_VERBOSE=1 git push origin main
+
+# Split commit and push
+git reset --soft HEAD~1
+git add -p  # or git add -i
+git commit -m "Part 1 of the changes"
+git push origin main
+```
+
+If you continue to encounter issues, consider reaching out to GitHub support for further assistance, as the problem may be related to server-side restrictions or issues.
