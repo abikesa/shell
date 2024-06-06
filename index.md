@@ -1759,3 +1759,15 @@ git push origin main
 ```
 
 If you continue to encounter issues, consider reaching out to GitHub support for further assistance, as the problem may be related to server-side restrictions or issues.
+
+# 29 `rm: quickdeploy: Permission denied`
+
+It looks like you're encountering a permission issue while trying to remove the `quickdeploy` directory. You might need to use `sudo` to remove the directory with elevated privileges.
+
+Try running the following command:
+
+```sh
+sudo rm -rf quickdeploy
+```
+
+You'll be prompted to enter your password. This command should remove the directory regardless of the permissions set on it.
