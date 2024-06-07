@@ -1852,6 +1852,10 @@ You can find and install these extensions from the Extensions view in VSCode (`C
    ```sh
    pip install jupyter-book
    ```
+
+WARNING: You are using pip version 21.2.4; however, version 24.0 is available.
+You should consider upgrading via the '/Users/apollo/Documents/Athena/venv/bin/python3 -m pip install --upgrade pip' command.
+
 3. Install `ghp-import`:
    ```sh
    pip install ghp-import
