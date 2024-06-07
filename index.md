@@ -2018,3 +2018,16 @@ If the issue persists, ensure your remote URL is correctly set:
 By following these updated steps, you should be able to resolve the issue and successfully push your changes to GitHub. If you encounter any further issues, let me know!
 
 By following these steps, you should be able to resolve the issue and successfully push your changes to GitHub. If you encounter any further issues, let me know!
+
+# 32 `Software Update Tool`
+
+Only received this query on Hades/MacBookPro. Didn't showup on Apollo/Mac Studio Pro
+
+Software Update Tool
+
+Finding available software
+
+Downloading Command Line Tools for Xcode
+
+Downloaded Command Line Tools for Xcode
+Installing Command Line Tools for Xcode
