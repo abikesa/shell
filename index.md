@@ -1771,3 +1771,104 @@ sudo rm -rf quickdeploy
 ```
 
 You'll be prompted to enter your password. This command should remove the directory regardless of the permissions set on it.
+
+# 30 `ghp-import -n -p -f _build/html`
+
+Certainly! Let's go through the process of setting up your workflow on your new Studio Pro and MacBookPro from scratch, step by step.
+
+### Step 1: Install Homebrew
+Homebrew is a package manager for macOS that makes installing third-party software easy.
+
+1. Open Terminal.
+2. Install Homebrew by pasting the following command and pressing Enter:
+   ```sh
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+
+### Step 2: Install Python
+Using Homebrew, install Python.
+
+1. In Terminal, run:
+   ```sh
+   brew install python
+   ```
+2. Verify the installation:
+   ```sh
+   python3 --version
+   ```
+
+### Step 3: Install VSCode
+Download and install Visual Studio Code from the [official website](https://code.visualstudio.com/).
+
+### Step 4: Install VSCode Extensions
+Install the following extensions in VSCode:
+1. Python
+2. Jupyter
+3. GitHub Repositories
+
+You can find and install these extensions from the Extensions view in VSCode (`Cmd+Shift+X`).
+
+### Step 5: Set Up a Virtual Environment
+1. Create a directory for your project:
+   ```sh
+   mkdir my_project
+   cd my_project
+   ```
+2. Set up a virtual environment:
+   ```sh
+   python3 -m venv venv
+   ```
+3. Activate the virtual environment:
+   ```sh
+   source venv/bin/activate
+   ```
+
+### Step 6: Install Jupyter Book and ghp-import
+1. Install `pip` if not already installed:
+   ```sh
+   python3 -m ensurepip --upgrade
+   ```
+2. Install Jupyter Book:
+   ```sh
+   pip install jupyter-book
+   ```
+3. Install `ghp-import`:
+   ```sh
+   pip install ghp-import
+   ```
+
+### Step 7: Create a Jupyter Book
+1. Create a new Jupyter Book:
+   ```sh
+   jb create mybook
+   cd mybook
+   ```
+2. Build the book:
+   ```sh
+   jb build .
+   ```
+
+### Step 8: Use ghp-import to Publish to GitHub Pages
+1. Ensure your book is built:
+   ```sh
+   jb build .
+   ```
+2. Use `ghp-import` to publish to GitHub Pages:
+   ```sh
+   ghp-import -n -p -f _build/html
+   ```
+
+### Step 9: Automate Workflow with VSCode
+1. Open your project in VSCode.
+2. Use the integrated terminal (`Ctrl+``) to activate your virtual environment:
+   ```sh
+   source venv/bin/activate
+   ```
+3. Create tasks in VSCode to automate your workflow (optional).
+
+### Additional Tips
+- Ensure your GitHub repository is correctly set up for GitHub Pages.
+- Regularly commit and push changes to your repository.
+- Customize your Jupyter Book as needed by editing the configuration files.
+
+By following these steps, you should be able to reproduce your previous workflow on your new machines. If you encounter any issues, feel free to ask for further assistance!
