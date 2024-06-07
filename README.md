@@ -1,1 +1,5 @@
-# shell
+- Kernel installations
+   - R
+      - Download R 
+   - Stata
+- Above steps necessary to update ipyKernels (e.g. `~/.ssh/id_workflow`) 
