@@ -2148,3 +2148,56 @@ This will install the most commonly used packages for data analysis in one go. I
 # and this took half hour
 brew install python
 ```
+
+# 35 `install.packages('IRkernel')`
+
+To run R commands, you need to install & open the R console from your terminal. Here are the steps:
+
+1. **Open the R Console**:
+   In your terminal, type `R` and press Enter to start the R console.
+
+2. **Install and Configure `IRkernel`**:
+   Once in the R console, run the following commands:
+   ```R
+   install.packages('IRkernel')
+   IRkernel::installspec(user = FALSE)
+   ```
+
+Here is the complete workflow:
+
+1. **Open R Console**:
+   ```bash
+   R
+   ```
+
+2. **Run R Commands**:
+   ```R
+   install.packages('IRkernel')
+   IRkernel::installspec(user = FALSE)
+   ```
+
+After completing these steps, you can exit the R console by typing `q()` and pressing Enter.
+
+3. **Verify Kernel Installation**:
+   After configuring the kernel, verify its installation in your terminal:
+   ```bash
+   jupyter kernelspec list
+   ```
+
+This should list the available kernels, including `ir`.
+
+### Example:
+
+**Opening the R Console:**
+```bash
+(venv) apollo@Athena Athena % R
+```
+
+**Installing and Configuring `IRkernel`:**
+```R
+> install.packages('IRkernel')
+> IRkernel::installspec(user = FALSE)
+> q()
+```
+
+After running these commands, your R kernel should be installed and configured correctly. Then, you can retry building your Jupyter Book.
