@@ -1774,7 +1774,7 @@ You'll be prompted to enter your password. This command should remove the direct
 
 # 30 `ghp-import -n -p -f _build/html`
 
-Certainly! Let's go through the process of setting up your workflow on your new Studio Pro and MacBookPro from scratch, step by step.
+Certainly! Let's go through the process of setting up your workflow on your new Studio Pro and MacBookPro from scratch, step by step. **(Later create a hybrid of `#30` & `#31` for optimal setup process)**
 
 ### Step 1: Install Homebrew
 Homebrew is a package manager for macOS that makes installing third-party software easy.
