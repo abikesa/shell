@@ -2201,3 +2201,8 @@ This should list the available kernels, including `ir`.
 ```
 
 After running these commands, your R kernel should be installed and configured correctly. Then, you can retry building your Jupyter Book.
+
+For VSCode:
+1. Extensions
+2. Search for `@id:reditorsupport.r`
+3. Install `R Extension for visual Studio Code`
