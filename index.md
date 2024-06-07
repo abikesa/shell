@@ -1899,35 +1899,18 @@ By following these steps, you should be able to reproduce your previous workflow
 
 # 31 `fatal: the remote end hung up unexpectedly`
 
-It looks like you encountered an issue while trying to push your changes to the GitHub repository, related to SSL and buffer size. Here are the steps to address this issue and ensure your workflow runs smoothly:
+You're right. For a public repository using HTTPS, GitHub credentials should not be necessary unless you're pushing changes. If you still encounter issues, the problem might be related to the network or other configurations. Let's adjust the approach to focus on the push error and the SSL issue:
 
-### Step 1: Increase the Buffer Size
+### Step-by-Step Guide to Resolve Push Issues and SSL Errors
+
+### Step 1: Increase Git Buffer Size
 1. Open your terminal.
 2. Increase the Git buffer size by running:
    ```sh
    git config --global http.postBuffer 524288000
    ```
 
-### Step 2: Reconfigure Git Credentials
-Ensure that your Git credentials are correctly set up. You can use a personal access token (PAT) for authentication.
-
-1. Generate a personal access token (PAT) from your GitHub account:
-   - Go to GitHub settings.
-   - Navigate to "Developer settings" > "Personal access tokens" > "Tokens (classic)".
-   - Generate a new token with the necessary permissions (e.g., `repo`).
-
-2. Configure Git to use this token:
-   ```sh
-   git config --global credential.helper cache
-   git config --global credential.helper 'cache --timeout=3600'
-   ```
-
-3. Re-authenticate with your token:
-   ```sh
-   git remote set-url origin https://<USERNAME>:<TOKEN>@github.com/<USERNAME>/<REPOSITORY>.git
-   ```
-
-### Step 3: Retry the Push
+### Step 2: Retry the Push
 1. Ensure you are in your project directory.
 2. Retry pushing your changes:
    ```sh
@@ -1936,11 +1919,44 @@ Ensure that your Git credentials are correctly set up. You can use a personal ac
    git push origin main
    ```
 
-### Step 4: Verify Your Changes on GitHub
+### Step 3: SSL Configuration
+
+If you still face SSL issues, you can try reconfiguring the SSL settings for Git:
+
+1. Disable SSL verification (not recommended for long-term use):
+   ```sh
+   git config --global http.sslVerify false
+   ```
+
+2. Retry the push:
+   ```sh
+   git push origin main
+   ```
+
+3. If the push is successful, re-enable SSL verification for security:
+   ```sh
+   git config --global http.sslVerify true
+   ```
+
+### Step 4: Reconfigure Remote URL (if needed)
+If the issue persists, ensure your remote URL is correctly set:
+
+1. Check the current remote URL:
+   ```sh
+   git remote -v
+   ```
+
+2. Reconfigure the remote URL (if necessary):
+   ```sh
+   git remote set-url origin https://github.com/abikesa/dionysus.git
+   ```
+
+### Step 5: Verify Your Changes on GitHub
 1. Go to your GitHub repository in your web browser.
 2. Verify that your changes have been pushed successfully and that the GitHub Pages site is properly updated.
 
-### Step-by-Step Recap
+### Step-by-Step Recap (Updated)
+
 1. **Install Homebrew**:
    ```sh
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -1984,19 +2000,21 @@ Ensure that your Git credentials are correctly set up. You can use a personal ac
    ghp-import -n -p -f _build/html
    ```
 
-9. **Increase Git Buffer Size and Reconfigure Git Credentials**:
+9. **Increase Git Buffer Size and Retry Push**:
    ```sh
    git config --global http.postBuffer 524288000
-   git config --global credential.helper cache
-   git config --global credential.helper 'cache --timeout=3600'
-   git remote set-url origin https://<USERNAME>:<TOKEN>@github.com/<USERNAME>/<REPOSITORY>.git
+   git add .
+   git commit -m "workflow 3.0 (ghp-import from any computer)"
+   git push origin main
    ```
 
-10. **Retry the Push**:
+10. **SSL Configuration (if needed)**:
     ```sh
-    git add .
-    git commit -m "workflow 3.0 (ghp-import from any computer)"
+    git config --global http.sslVerify false
     git push origin main
+    git config --global http.sslVerify true
     ```
+
+By following these updated steps, you should be able to resolve the issue and successfully push your changes to GitHub. If you encounter any further issues, let me know!
 
 By following these steps, you should be able to resolve the issue and successfully push your changes to GitHub. If you encounter any further issues, let me know!
