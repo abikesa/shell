@@ -1803,6 +1803,15 @@ Using Homebrew, install Python.
    ```sh
    brew install python
    ```
+Python has been installed as
+  `/opt/homebrew/bin/python3`
+
+Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
+`python3`, `python3-config`, `pip3` etc., respectively, have been installed into
+  `/opt/homebrew/opt/python@3.12/libexec/bin`
+
+See: https://docs.brew.sh/Homebrew-and-Python
+
 2. Verify the installation:
    ```sh
    python3 --version
