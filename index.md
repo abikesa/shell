@@ -1785,6 +1785,17 @@ Homebrew is a package manager for macOS that makes installing third-party softwa
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
    ```
 
+- Run these two commands in your terminal to add Homebrew to your PATH:
+
+```bash
+    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/apollo/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
+- Run brew help to get started
+- Further documentation:
+    https://docs.brew.sh
+
 ### Step 2: Install Python
 Using Homebrew, install Python.
 
