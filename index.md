@@ -2437,3 +2437,7 @@ echo "Setup complete!"
    ```
 
 This script will handle the entire process of setting up the virtual environment, installing the necessary packages, configuring the environment variable, installing the Stata kernel, and starting Jupyter Notebook. This ensures a reproducible and smooth setup experience.
+
+# 40 `XQuartz`
+
+Needed to install it for either [R](https://abikesa.github.io/kernel/intro.html) or [Stata](https://abikesa.github.io/pystata/intro.html), I forget which
