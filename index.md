@@ -2312,3 +2312,58 @@ pip install jupyter-book
 jb --version
 jb create ir
 ```
+# 38 `ghp-import`
+
+To install `ghp-import`, you can use `pip`, the Python package installer. Here's how you can do it:
+
+1. Open your terminal.
+
+2. Ensure you have `pip` installed by running:
+
+   ```sh
+   pip --version
+   ```
+
+   If `pip` is not installed, you can install it by following the instructions [here](https://pip.pypa.io/en/stable/installation/).
+
+3. Install `ghp-import` using `pip`:
+
+   ```sh
+   pip install ghp-import
+   ```
+
+If you want to install `ghp-import` in a specific virtual environment, make sure to activate your virtual environment first:
+
+1. Navigate to your project directory:
+
+   ```sh
+   cd /path/to/your/project
+   ```
+
+2. Activate your virtual environment. For example, if you are using `venv`, you can activate it like this:
+
+   - On macOS and Linux:
+
+     ```sh
+     source venv/bin/activate
+     ```
+
+   - On Windows:
+
+     ```sh
+     .\venv\Scripts\activate
+     ```
+
+3. Once the virtual environment is activated, install `ghp-import`:
+
+   ```sh
+   pip install ghp-import
+   ```
+
+To verify the installation, you can check the version of `ghp-import`:
+
+```sh
+ghp-import --version
+```
+
+This should confirm that `ghp-import` is installed and ready to use. If you encounter any issues, feel free to ask for further assistance.
