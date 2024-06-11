@@ -2367,3 +2367,73 @@ ghp-import --version
 ```
 
 This should confirm that `ghp-import` is installed and ready to use. If you encounter any issues, feel free to ask for further assistance.
+
+# 39 setup_stata_kernel.sh
+
+Certainly! Below is a comprehensive script that you can run from start to finish to set up your virtual environment, install the necessary packages, configure the Stata kernel, and start Jupyter Notebook. This script ensures that the entire process is reproducible and hassle-free.
+
+### Complete Script for Setting Up Stata Kernel in Jupyter Notebook
+
+```sh
+#!/bin/bash
+
+# Set up variables
+VENV_PATH="/Users/hades/Documents/hades/myenv"
+STATA_PATH="/Applications/Stata/StataMP.app/Contents/MacOS/stata-mp"
+ZSHRC_PATH="$HOME/.zshrc"
+
+# Step 1: Remove existing virtual environment if it exists
+echo "Removing existing virtual environment..."
+rm -rf $VENV_PATH
+
+# Step 2: Create a new virtual environment
+echo "Creating a new virtual environment..."
+python3 -m venv $VENV_PATH
+
+# Step 3: Activate the virtual environment
+echo "Activating the virtual environment..."
+source $VENV_PATH/bin/activate
+
+# Step 4: Install necessary packages
+echo "Installing necessary packages..."
+pip install stata_kernel ipykernel setuptools notebook
+
+# Step 5: Configure environment variable for Stata path
+echo "Configuring environment variable for Stata path..."
+if [ ! -f $ZSHRC_PATH ]; then
+    touch $ZSHRC_PATH
+fi
+grep -qxF "export STATA_KERNEL_STATA_PATH=$STATA_PATH" $ZSHRC_PATH || echo "export STATA_KERNEL_STATA_PATH=$STATA_PATH" >> $ZSHRC_PATH
+source $ZSHRC_PATH
+
+# Step 6: Install the Stata kernel
+echo "Installing the Stata kernel..."
+python -m stata_kernel.install
+
+# Step 7: Start Jupyter Notebook
+echo "Starting Jupyter Notebook..."
+jupyter notebook
+
+echo "Setup complete!"
+```
+
+### Instructions to Use the Script
+
+1. **Save the Script**:
+   - Save the script to a file, for example, `setup_stata_kernel.sh`.
+
+2. **Make the Script Executable**:
+   - Make the script executable by running the following command:
+
+   ```sh
+   chmod +x setup_stata_kernel.sh
+   ```
+
+3. **Run the Script**:
+   - Run the script by executing:
+
+   ```sh
+   ./setup_stata_kernel.sh
+   ```
+
+This script will handle the entire process of setting up the virtual environment, installing the necessary packages, configuring the environment variable, installing the Stata kernel, and starting Jupyter Notebook. This ensures a reproducible and smooth setup experience.
