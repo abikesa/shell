@@ -2303,3 +2303,12 @@ Here's a summary of the steps to configure the R kernel in VSCode on your MacBoo
     - Select the `R` kernel from the dropdown menu.
 
 By following these summarized steps, you should be able to replicate the setup on your MacBook Pro successfully. If you encounter any issues or need further assistance, please let me know.
+
+# 37 `jb create`
+
+```bash
+source ~/documents/athena/myenv/bin/activate
+pip install jupyter-book
+jb --version
+jb create ir
+```
