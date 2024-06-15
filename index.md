@@ -2441,3 +2441,47 @@ This script will handle the entire process of setting up the virtual environment
 # 40 `XQuartz`
 
 Needed to install it for either [R](https://abikesa.github.io/kernel/intro.html) or [Stata](https://abikesa.github.io/pystata/intro.html), I forget which
+
+# 41 `git config --global http.sslVerify false`
+
+Alright, let's switch back to using HTTPS for your remote repository. Here’s how to resolve the issue using HTTPS:
+
+1. **Set Remote URL Back to HTTPS**:
+   ```sh
+   git remote set-url origin https://github.com/username/repo.git
+   ```
+
+2. **Retry the Push**:
+   ```sh
+   git push -u origin main
+   ```
+
+3. **If You Encounter the SSL Error Again**:
+   Since we increased the HTTP post buffer and switched to HTTP/1.1, we can try a few more steps to resolve the SSL issue.
+
+   - **Disable SSL Verification**:
+     This is not recommended for regular use due to security risks, but it can help diagnose the problem:
+     ```sh
+     git config --global http.sslVerify false
+     ```
+     Then try the push again.
+
+   - **Check GitHub Status**:
+     Make sure GitHub is not experiencing any issues by checking [GitHub Status](https://www.githubstatus.com/).
+
+   - **Reauthenticate**:
+     Sometimes, clearing saved credentials can help:
+     ```sh
+     git credential-cache exit
+     ```
+     Then try the push again. You might be prompted to enter your username and password.
+
+   - **Update Git**:
+     Ensure your Git version is up-to-date. You can download the latest version from [Git's official website](https://git-scm.com/).
+
+If the push is successful, you can turn SSL verification back on for security reasons:
+```sh
+git config --global http.sslVerify true
+```
+
+Try these steps, and let me know if you encounter any specific errors during the process.
