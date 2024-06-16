@@ -2485,3 +2485,35 @@ git config --global http.sslVerify true
 ```
 
 Try these steps, and let me know if you encounter any specific errors during the process.
+
+.   
+.   
+.     
+
+## 45 `wiki-style jb`
+
+```sh
+# myenv
+git clone https://github.com/abikesa/workflow && mv workflow new && new/setup_myenv.sh && source myenv/bin/activate 
+
+# template
+git clone https://github.com/the-turing-way/the-turing-way
+mv the-turing-way kenny
+cd kenny/book/website
+pip install -r requirements.txt && jupyter-book build .
+
+# error message
+pip uninstall sphinx sphinx-panels jupyter-book sphinxcontrib-applehelp sphinxcontrib-devhelp sphinxcontrib-jsmath sphinxcontrib-htmlhelp sphinxcontrib-serializinghtml sphinxcontrib-qthelp sphinx-design sphinx-external-toc pydata-sphinx-theme sphinx-jupyterbook-latex sphinx-book-theme myst-nb myst-parser
+pip install "sphinx>=5.0,<6.0" sphinxcontrib-applehelp sphinxcontrib-devhelp sphinxcontrib-jsmath sphinxcontrib-htmlhelp sphinxcontrib-serializinghtml sphinxcontrib-qthelp sphinx-design "sphinx-external-toc<2" "pydata-sphinx-theme>=0.15.2" "sphinx-jupyterbook-latex<2" "sphinx-book-theme>=1.1.0,<2" "myst-nb<3" "myst-parser<3" "jupyter-book>=0.12.0" "sphinx-thebe>=0.3,<1" sphinx-panels
+jupyter-book build .
+
+# big files
+rm -rf figures
+rm -rf _build/html/_images
+
+# parent directory
+cd ~/documents/hades
+
+# block ghp-import (use netlify or import manually)
+new/jbb_https.sh
+```
