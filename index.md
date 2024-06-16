@@ -2578,3 +2578,89 @@ cd ~/documents/hades
 # block ghp-import (use netlify or import manually)
 new/jbb_https.sh
 ```
+
+## 46 `everyday`
+
+Create & destroy, everyday! That should be our motto!!
+
+#### 1 `myenv`
+
+```sh
+git clone https://github.com/abikesa/workflow && mv workflow new && new/setup_myenv.sh && source myenv/bin/activate 
+
+```
+
+#### 2 `clone` & `rm`
+
+```sh
+git clone https://github.com/the-turing-way/the-turing-way
+mv the-turing-way cnd
+```
+
+#### 3 `_toc.yml`
+
+Keep only 3 sections as template for structure
+
+```sh
+cat cnd/book/website/_toc.yml
+```
+
+- Welcome
+   - index.md
+- Forward
+   - forward.md
+   - background.md
+- Guide for Reproducible Research
+   - reproducible-reseaarch.md
+   - overview-definitions.md
+- Guide for Project Design
+   - project-design.md
+   - pd-overview.md
+   - pd-overview
+      - pd-overview-methods
+
+
+#### 4 `requirements.txt`
+
+This gives an error on `Athena` & `Hades`, but not on `Poseidon`
+
+```sh
+cd cnd/book/website
+pip install -r requirements.txt && jupyter-book build .
+```
+
+And here's the fix for `Athena` & `Poseidon`
+
+```sh
+pip uninstall sphinx sphinx-panels jupyter-book sphinxcontrib-applehelp sphinxcontrib-devhelp sphinxcontrib-jsmath sphinxcontrib-htmlhelp sphinxcontrib-serializinghtml sphinxcontrib-qthelp sphinx-design sphinx-external-toc pydata-sphinx-theme sphinx-jupyterbook-latex sphinx-book-theme myst-nb myst-parser
+pip install "sphinx>=5.0,<6.0" sphinxcontrib-applehelp sphinxcontrib-devhelp sphinxcontrib-jsmath sphinxcontrib-htmlhelp sphinxcontrib-serializinghtml sphinxcontrib-qthelp sphinx-design "sphinx-external-toc<2" "pydata-sphinx-theme>=0.15.2" "sphinx-jupyterbook-latex<2" "sphinx-book-theme>=1.1.0,<2" "myst-nb<3" "myst-parser<3" "jupyter-book>=0.12.0" "sphinx-thebe>=0.3,<1" sphinx-panels
+```
+
+```sh
+jupyter-book build .
+```
+
+#### 5 `rm`
+
+Can skip this since step `#3` sanized the repo
+
+```sh
+rm -rf figures
+rm -rf _build/html/_images
+```
+
+#### 6 `new/jbb_https.sh`
+
+Prepare to `push` the `.git`  
+
+```sh
+cd ~/documents/athena
+new/jbb_https.sh
+```
+
+#### 7 `ghp-import`
+
+```sh
+git clone https://github.com/abikesa/everyday/
+mv cnd/book/website/_build everyday/book/website/_build
+```
