@@ -1,4 +1,8 @@
-# 1 `$()`
+# Bash
+
+![](https://cdn-wordpress-info.futurelearn.com/info/wp-content/uploads/b520f2d9-52b6-4eef-b207-ab75e6e04c46.png)
+
+## 1 `$()`
 
 The `$(eval ...)` construct in a shell script is used to evaluate a command and then execute it. Here’s a breakdown of what each component does:
 
@@ -24,7 +28,7 @@ This effectively resolves and expands any variables or tilde (`~`) notation in t
 
 In the context of your script, `$(eval echo $SSH_KEY_PATH)` ensures that the path provided by `SSH_KEY_PATH` is fully expanded before it's used in commands like `chmod` or `ssh-add`.
 
-# 2 `work/abikesa_jbb_https.sh`
+## 2 `work/abikesa_jbb_https.sh`
 
 ```bash
 # Create a template Jupyter Book; to be modified later
@@ -98,7 +102,7 @@ echo "Jupyter Book content updated and pushed to $GITHUB_USERNAME/$REPO_NAME rep
 
 ```
 
-# 3 `work/abikesa_jbb_ssh.sh`
+## 3 `work/abikesa_jbb_ssh.sh`
 
 ```bash
 # User-defined inputs for abi/abikesa_jbb.sh; substantive edits on 08/14/2023:
@@ -185,7 +189,7 @@ echo "Jupyter Book content updated and pushed to $GITHUB_USERNAME/$REPO_NAME rep
 
 ```
 
-# 4 `work/abikesa_jbc.sh`
+## 4 `work/abikesa_jbc.sh`
 
 ```bash
 #!/bin/bash
@@ -288,7 +292,7 @@ echo "Jupyter Book content updated and pushed to $GITHUB_USERNAME/$REPO_NAME rep
 ```
 
 
-# 5 `work/abikesa_clone.sh`
+## 5 `work/abikesa_clone.sh`
 
 ```bash
 # Ensure your SSH agent is running:
@@ -317,7 +321,7 @@ rm -r "stataone 2"
 # phrase is "work", not "workflow"
 ```
 
-# 6 `work/abikesa_csv.sh`
+## 6 `work/abikesa_csv.sh`
 
 ```bash
 # testing a new workflow
@@ -325,7 +329,7 @@ export PATH=$PATH:/applications/stata/statamp.app/contents/macos/
 stata-se -b work/abikesa_csv.do
 ```
 
-# 7 `work/abikesa_editrepo.sh`
+## 7 `work/abikesa_editrepo.sh`
 
 ```bash
 #!/bin/bash
@@ -354,7 +358,7 @@ echo "Enter your email for git config:"
 read EMAIL
 
 echo "Enter the filename of your SSH key (e.g., id_rsa):"
-read SSH
+read SSHw
 
 echo "Enter the exact name of the file or directory to delete (e.g., obsolete_code.py or 'old folder/'):"
 read FILENAME_TO_DELETE
@@ -395,7 +399,7 @@ git push -u origin main
 
 ```
 
-# 8 `work/abikesa_forked.sh`
+## 8 `work/abikesa_forked.sh`
 
 ```bash
 #!/bin/bash
@@ -454,7 +458,7 @@ echo "jb content updated & pushed to $GITHUB_USER/$GITHUB_REPO repository!"
 
 ```
 
-# 9 `work/abikesa_key_g.sh`
+## 9 `work/abikesa_key_g.sh`
 
 ```bash
 #!/bin/bash
@@ -534,7 +538,7 @@ echo "Jupyter Book content updated and pushed to $GITHUB_USERNAME/$REPO_NAME rep
 
 ```
 
-# 10 `work/abikesa_key.sh`
+## 10 `work/abikesa_key.sh`
 
 ```bash
 # Fork/clone then create SSH key
@@ -567,111 +571,11 @@ cd ..
 rm -rf deploy
 echo "Jupyter Book content updated and pushed to abikesa/got repository!"
 
-
-
 # commitment issues!!
-
-```bash
-(myenv) d@Poseidon project % git add ./*
-(myenv) d@Poseidon project % git commit -m "zero jb"
-On branch main
-Your branch is up to date with 'origin/main'.
-
-Changes not staged for commit:
-  (use "git add/rm <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-        deleted:    _config.yml
-        deleted:    _toc.yml
-        deleted:    intro.md
-        deleted:    logo.png
-        deleted:    markdown-notebooks.md
-        deleted:    markdown.md
-        deleted:    notebooks.ipynb
-        deleted:    references.bib
-        deleted:    requirements.txt
-        deleted:    stmarkdown.css.txt
-
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-        .DS_Store
-
-no changes added to commit (use "git add" and/or "git commit -a")
-(myenv) d@Poseidon project % git rm  _config.yml
-rm '_config.yml'
-(myenv) d@Poseidon project % git rm   _toc.yml intro.md
-rm '_toc.yml'
-rm 'intro.md'
-(myenv) d@Poseidon project % git rm logo.png markdown-notebooks.md markdown.md notebooks.ipynb references.bib requirements.txt stmarkdown.css.txt
-rm 'logo.png'
-rm 'markdown-notebooks.md'
-rm 'markdown.md'
-rm 'notebooks.ipynb'
-rm 'references.bib'
-rm 'requirements.txt'
-rm 'stmarkdown.css.txt'
-(myenv) d@Poseidon project % git add ./*
-(myenv) d@Poseidon project % git commit -m "no jb"
-[main 217e24c] no jb
- 10 files changed, 485 deletions(-)
- delete mode 100644 _config.yml
- delete mode 100644 _toc.yml
- delete mode 100644 intro.md
- delete mode 100644 logo.png
- delete mode 100644 markdown-notebooks.md
- delete mode 100644 markdown.md
- delete mode 100644 notebooks.ipynb
- delete mode 100644 references.bib
- delete mode 100644 requirements.txt
- delete mode 100644 stmarkdown.css.txt
-(myenv) d@Poseidon project % chmod 600 ~/.ssh/id_intermediateproject
-(myenv) d@Poseidon project % git remote set-url origin "git@github.com:jhustata/project"
-(myenv) d@Poseidon project % git push -u origin main
-To github.com:jhustata/project
- ! [rejected]        main -> main (fetch first)
-error: failed to push some refs to 'github.com:jhustata/project'
-hint: Updates were rejected because the remote contains work that you do
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-(myenv) d@Poseidon project % git pull
-remote: Enumerating objects: 3, done.
-remote: Counting objects: 100% (1/1), done.
-remote: Total 3 (delta 1), reused 1 (delta 1), pack-reused 2
-Unpacking objects: 100% (3/3), 1.67 KiB | 568.00 KiB/s, done.
-From github.com:jhustata/project
-   db503bf..3d0675b  main       -> origin/main
-hint: You have divergent branches and need to specify how to reconcile them.
-hint: You can do so by running one of the following commands sometime before
-hint: your next pull:
-hint: 
-hint:   git config pull.rebase false  # merge
-hint:   git config pull.rebase true   # rebase
-hint:   git config pull.ff only       # fast-forward only
-hint: 
-hint: You can replace "git config" with "git config --global" to set a default
-hint: preference for all repositories. You can also pass --rebase, --no-rebase,
-hint: or --ff-only on the command line to override the configured default per
-hint: invocation.
-fatal: Need to specify how to reconcile divergent branches.
-(myenv) d@Poseidon project % git config pull.rebase true 
-(myenv) d@Poseidon project % git pull                    
-Successfully rebased and updated refs/heads/main.
-(myenv) d@Poseidon project % git push -u origin main     
-Enumerating objects: 3, done.
-Counting objects: 100% (3/3), done.
-Delta compression using up to 20 threads
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (2/2), 230 bytes | 230.00 KiB/s, done.
-Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (1/1), completed with 1 local object.
-To github.com:jhustata/project
-   3d0675b..20ff4e7  main -> main
-branch 'main' set up to track 'origin/main'.
-(myenv) d@Poseidon project % 
 ```
 
-# 11 `work/abikesa_ngoma.sh`
+
+## 11 `work/abikesa_ngoma.sh`
 
 ```bash
 #!/bin/bash
@@ -791,7 +695,7 @@ echo "Jupyter Book content updated and pushed to $GITHUB_USERNAME/$REPO_NAME rep
 
 ```
 
-# 12 `work/abikesa_remove_duplicages.sh`
+## 12 `work/abikesa_remove_duplicages.sh`
 
 ```bash
 #!/bin/bash
@@ -837,7 +741,7 @@ echo "Duplicate scan complete."
 
 ```
 
-# 13 `work/abikesa_rmdir.sh`
+## 13 `work/abikesa_rmdir.sh`
 
 ```bash
 #!/bin/bash
@@ -878,14 +782,14 @@ git config --local user.name "$USERNAME"
 git config --local user.email "$EMAIL"
 git push -u origin main
 
-# token for stata/intermediate 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
+# token for stata/intermediate ghp_thisisafaketoken
 ```
 
-# 14 `work/abikesa_rmfiles.sh`
+## 14 `work/abikesa_rmfiles.sh`
 
 ```bash
 # Tokens: Profile photo, Settings, Developer Settings
-# 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
+# ghp_thisisafaketoken
 # jhustata/basic
 
 # Delete repo folder
@@ -912,7 +816,7 @@ git push -u origin main
 
 ```
 
-# 15 `work/abikesa_rmstuff.sh`
+## 15 `work/abikesa_rmstuff.sh`
 
 ```bash
 # $TOKEN if private repo
@@ -949,7 +853,7 @@ git checkout main
 git push -u origin main
 ```
 
-# 16 `work/abikesa_statacurl.sh`
+## 16 `work/abikesa_statacurl.sh`
 
 ```bash
 # remote work
@@ -961,7 +865,7 @@ export PATH=$PATH:/applications/stata/statamp.app/contents/macos/
 stata-mp -b hello.do
 ```
 
-# 17 `work/bash.sh`
+## 17 `work/bash.sh`
 
 ```bash
 #!/bin/bash
@@ -982,7 +886,7 @@ jb build git2
 
 ```
 
-# 18 `jb build bloc/denotas`
+## 18 `jb build bloc/denotas`
 
 Since `jupyter-client` cannot be found in the specified channels, let's try to resolve the issue by installing it via pip, which might help us bypass the package resolution problems in conda.
 
@@ -1039,7 +943,7 @@ jb build bloc
 
 These steps should help you resolve the package availability issues and proceed with building your Jupyter Book.
 
-# 19 `git config --global credential`
+## 19 `git config --global credential`
 
 It looks like you're encountering an issue with pushing your changes to the GitHub repository due to an SSL error. Here are some steps to troubleshoot and resolve the issue:
 
@@ -1110,7 +1014,7 @@ It looks like you're encountering an issue with pushing your changes to the GitH
 
 By following these steps, you should be able to resolve the SSL error and successfully push your changes to the GitHub repository. If the issue persists, you might need to check for updates or reinstall Git and related tools.
 
-# 20 `git credential-cache exit`
+## 20 `git credential-cache exit`
 
 To change the GitHub account you're using in VSCode, you can follow these steps:
 
@@ -1157,7 +1061,7 @@ To change the GitHub account you're using in VSCode, you can follow these steps:
 
 By following these steps, you should be able to switch your GitHub account in VSCode and push your changes using the new account credentials. Let me know if you encounter any issues or need further assistance!
 
-# 21 `conda` vs. `venv`
+## 21 `conda` vs. `venv`
 
 It looks like your virtual environment is structured differently, likely because it was created using Anaconda or a similar distribution. Instead of the standard `venv` structure, it seems you have a conda environment. Here’s how you can work with it:
 
@@ -1251,7 +1155,7 @@ Sure, here’s a coherent step-by-step guide to setting up a Python virtual envi
 
 By following these steps, you should have a fully functioning Python development environment in VSCode on your new Mac laptop. If you encounter any issues during the setup, feel free to ask for further assistance!
 
-# 22 `pip install`
+## 22 `pip install`
 
 To simplify the installation of multiple packages, you can create a script that installs all the required packages at once. Here’s how you can do it:
 
@@ -1380,7 +1284,7 @@ To run the script:
 
 This script will set up your virtual environment, install the required packages, and add the environment to Jupyter.
 
-# 23 `work/abikesa_jbb_ssh.sh` again!
+## 23 `work/abikesa_jbb_ssh.sh` again!
 
 The error message indicates that there are several issues encountered during the build process and when pushing to the repository. Here’s a step-by-step guide to address these issues:
 
@@ -1472,7 +1376,7 @@ The error message indicates a failure when pushing to GitHub due to an unexpecte
 
 Following these steps should help resolve the issues with the Jupyter Book build and pushing to GitHub. If you encounter further issues, please provide the specific error messages for additional assistance.
 
-# 24 `~/.ssh/id_workflow`
+## 24 `~/.ssh/id_workflow`
 
 Based on the error messages, it seems like there are a few issues you need to resolve to successfully build your Jupyter Book and push to your GitHub repository.
 
@@ -1545,7 +1449,7 @@ This issue might be related to network instability or SSH key configuration.
 
 Following these steps should help resolve the issues with the Jupyter Book build and pushing to GitHub. If you encounter further issues, please provide the specific error messages for additional assistance.
 
-# 25 `iframe` & `source`
+## 25 `iframe` & `source`
 
 The `src` attribute in an `<iframe>` element stands for "source." It specifies the URL of the document or content that you want to embed within the iframe. Essentially, it tells the browser where to find the content that will be displayed inside the iframe.
 
@@ -1557,7 +1461,7 @@ Here is the `src` attribute in the context of an `<iframe>` element:
 
 In this example, the iframe will load and display the content from "https://www.example.com".
 
-# 26 `pip install`
+## 26 `pip install`
 
 Great, you've successfully authenticated with GitHub using your SSH key. Now let's address the remaining issues:
 
@@ -1610,7 +1514,7 @@ git push origin main
 
 Following these steps should help you rebuild your Jupyter Book and successfully push your changes to GitHub. If you encounter any further issues, please provide the specific error messages for additional assistance.
 
-# 27 `git config --global http.postBuffer 524288000`
+## 27 `git config --global http.postBuffer 524288000`
 
 This issue often arises due to network problems, server-side restrictions, or SSH configuration issues. Here are some steps to troubleshoot and potentially resolve the problem:
 
@@ -1690,7 +1594,7 @@ GIT_SSH_COMMAND="ssh -v" git push origin main
 
 If you still encounter issues after trying these steps, please share any additional output or error messages for further assistance.
 
-# 28 `bash`
+## 28 `bash`
 
 The "unexpected disconnect while reading sideband packet" error indicates that there might be an issue on GitHub's end or with the network connection between your local machine and GitHub's servers. Here are a few additional steps you can try to resolve the issue:
 
@@ -1760,7 +1664,7 @@ git push origin main
 
 If you continue to encounter issues, consider reaching out to GitHub support for further assistance, as the problem may be related to server-side restrictions or issues.
 
-# 29 `rm: quickdeploy: Permission denied`
+## 29 `rm: quickdeploy: Permission denied`
 
 It looks like you're encountering a permission issue while trying to remove the `quickdeploy` directory. You might need to use `sudo` to remove the directory with elevated privileges.
 
@@ -1772,7 +1676,7 @@ sudo rm -rf quickdeploy
 
 You'll be prompted to enter your password. This command should remove the directory regardless of the permissions set on it.
 
-# 30 `ghp-import -n -p -f _build/html`
+## 30 `ghp-import -n -p -f _build/html`
 
 Certainly! Let's go through the process of setting up your workflow on your new Studio Pro and MacBookPro from scratch, step by step. **(Later create a hybrid of `#30` & `#31` for optimal setup process)**
 
@@ -1897,7 +1801,7 @@ You should consider upgrading via the '/Users/apollo/Documents/Athena/venv/bin/p
 
 By following these steps, you should be able to reproduce your previous workflow on your new machines. If you encounter any issues, feel free to ask for further assistance!
 
-# 31 `fatal: the remote end hung up unexpectedly`
+## 31 `fatal: the remote end hung up unexpectedly`
 
 You're right. For a public repository using HTTPS, GitHub credentials should not be necessary unless you're pushing changes. If you still encounter issues, the problem might be related to the network or other configurations. Let's adjust the approach to focus on the push error and the SSL issue:
 
@@ -2019,7 +1923,7 @@ By following these updated steps, you should be able to resolve the issue and su
 
 By following these steps, you should be able to resolve the issue and successfully push your changes to GitHub. If you encounter any further issues, let me know!
 
-# 32 `Software Update Tool`
+## 32 `Software Update Tool`
 
 Only received this query on Hades/MacBookPro. Didn't showup on Apollo/Mac Studio Pro
 
@@ -2032,7 +1936,7 @@ Downloading Command Line Tools for Xcode
 Downloaded Command Line Tools for Xcode
 Installing Command Line Tools for Xcode
 
-# 33 `xcode-select --install`
+## 33 `xcode-select --install`
 
 Yes, you may need to install Xcode Command Line Tools to ensure that you have all the necessary compilers and libraries for building Python packages and other software. Here’s how you can install it:
 
@@ -2120,7 +2024,7 @@ This should return `/Library/Developer/CommandLineTools`.
 
 By following these updated steps, you should be able to resolve any issues related to dependencies and successfully push your changes to GitHub. If you encounter any further issues, let me know!
 
-# 34 `pip install pandas ... `
+## 34 `pip install pandas ... `
 
 Certainly! You can install the most frequently used Python packages for data analysis in a single command using `pip`. Here is the command to install packages like `numpy`, `pandas`, `matplotlib`, `seaborn`, `scipy`, `scikit-learn`, and `jupyter`:
 
@@ -2149,7 +2053,7 @@ This will install the most commonly used packages for data analysis in one go. I
 brew install python
 ```
 
-# 35 `install.packages('IRkernel')`
+## 35 `install.packages('IRkernel')`
 
 To run R commands, you need to install & open the R console from your terminal. Here are the steps:
 
@@ -2207,7 +2111,7 @@ For VSCode:
 2. Search for `@id:reditorsupport.r`
 3. Install `R Extension for visual Studio Code`
 
-# 36 `IRkernel` (take 2)
+## 36 `IRkernel` (take 2)
 
 Here's a summary of the steps to configure the R kernel in VSCode on your MacBook Pro for easy reproducibility:
 
@@ -2304,7 +2208,7 @@ Here's a summary of the steps to configure the R kernel in VSCode on your MacBoo
 
 By following these summarized steps, you should be able to replicate the setup on your MacBook Pro successfully. If you encounter any issues or need further assistance, please let me know.
 
-# 37 `jb create`
+## 37 `jb create`
 
 ```bash
 source ~/documents/athena/myenv/bin/activate
@@ -2312,7 +2216,7 @@ pip install jupyter-book
 jb --version
 jb create ir
 ```
-# 38 `ghp-import`
+## 38 `ghp-import`
 
 To install `ghp-import`, you can use `pip`, the Python package installer. Here's how you can do it:
 
@@ -2368,7 +2272,7 @@ ghp-import --version
 
 This should confirm that `ghp-import` is installed and ready to use. If you encounter any issues, feel free to ask for further assistance.
 
-# 39 setup_stata_kernel.sh
+## 39 setup_stata_kernel.sh
 
 Certainly! Below is a comprehensive script that you can run from start to finish to set up your virtual environment, install the necessary packages, configure the Stata kernel, and start Jupyter Notebook. This script ensures that the entire process is reproducible and hassle-free.
 
@@ -2438,11 +2342,103 @@ echo "Setup complete!"
 
 This script will handle the entire process of setting up the virtual environment, installing the necessary packages, configuring the environment variable, installing the Stata kernel, and starting Jupyter Notebook. This ensures a reproducible and smooth setup experience.
 
-# 40 `XQuartz`
+## 40 `XQuartz`
 
 Needed to install it for either [R](https://abikesa.github.io/kernel/intro.html) or [Stata](https://abikesa.github.io/pystata/intro.html), I forget which
 
-# 41 `git config --global http.sslVerify false`
+## 41 `setup_myenv.sh`
+
+```sh
+#!/bin/zsh
+
+# Define the environment directory
+ENV_DIR="myenv"
+
+# Remove the existing environment if it exists
+if [ -d "$ENV_DIR" ]; then
+    rm -rf "$ENV_DIR"
+fi
+
+# Create a new virtual environment
+python3 -m venv $ENV_DIR
+
+# Check if virtual environment was created successfully
+if [ ! -d "$ENV_DIR" ]; then
+    echo "Failed to create virtual environment."
+    exit 1
+fi
+
+# Activate the virtual environment
+source $ENV_DIR/bin/activate
+
+# Check if activation was successful
+if [ "$VIRTUAL_ENV" != "" ]; then
+    echo "Virtual environment activated."
+else
+    echo "Failed to activate virtual environment."
+    exit 1
+fi
+
+# Ensure pip is installed
+if ! command -v pip &> /dev/null; then
+    echo "pip could not be found, installing pip..."
+    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    python get-pip.py
+    if [ $? -ne 0 ]; then
+        echo "Failed to install pip."
+        deactivate
+        exit 1
+    fi
+fi
+
+# Upgrade pip
+pip install --upgrade pip
+
+# Install necessary Python packages
+pip install jupyter jupyterlab ipykernel jupyter-book ghp-import matplotlib numpy wordcloud pandas scipy seaborn scikit-learn tensorflow keras plotly dash flask django pytest pylint black isort mypy pydantic fastapi uvicorn requests beautifulsoup4 sqlalchemy ipython tqdm joblib sympy h5py pyqt5 nbconvert nbformat ipywidgets
+
+# Check if Jupyter Book is installed
+if ! command -v jb &> /dev/null; then
+    echo "Jupyter Book could not be found. Something went wrong with the installation."
+    deactivate
+    exit 1
+fi
+
+# Install IRkernel for R
+Rscript -e "install.packages('IRkernel', repos='https://cloud.r-project.org/')"
+if [ $? -ne 0 ]; then
+    echo "Failed to install IRkernel."
+    deactivate
+    exit 1
+fi
+Rscript -e "IRkernel::installspec(name = 'ir', displayname = 'R')"
+if [ $? -ne 0 ]; then
+    echo "Failed to install IRkernel spec."
+    deactivate
+    exit 1
+fi
+
+# Install Stata kernel (assuming you have Stata installed)
+pip install stata_kernel
+python -m stata_kernel.install
+if [ $? -ne 0 ]; then
+    echo "Failed to install Stata kernel."
+    deactivate
+    exit 1
+fi
+
+echo "Environment setup complete."
+
+# Deactivate the virtual environment
+deactivate
+
+# Print instructions for reactivating the virtual environment
+echo "To reactivate the virtual environment, use the following command:"
+echo "source $ENV_DIR/bin/activate"
+
+```
+
+## 42 `git config --global http.sslVerify false`
 
 Alright, let's switch back to using HTTPS for your remote repository. Here’s how to resolve the issue using HTTPS:
 
@@ -2486,9 +2482,74 @@ git config --global http.sslVerify true
 
 Try these steps, and let me know if you encounter any specific errors during the process.
 
-.   
-.   
-.     
+## 43 `pip install "sphinx>=5.0,<6.0"`
+
+We are caught in a [dependency conflict](https://abikesa.github.io/wikitemplate/) due to the required versions of sphinx and other extensions. Let’s take a different approach:
+
+1. Uninstall all currently installed versions.
+2. Install compatible versions of the packages together, ensuring there are no version conflicts.
+
+Let’s uninstall the current packages again:
+
+```sh
+pip uninstall sphinx sphinx-panels jupyter-book sphinxcontrib-applehelp sphinxcontrib-devhelp sphinxcontrib-jsmath sphinxcontrib-htmlhelp sphinxcontrib-serializinghtml sphinxcontrib-qthelp sphinx-design sphinx-external-toc pydata-sphinx-theme sphinx-jupyterbook-latex sphinx-book-theme myst-nb myst-parser
+```
+
+Next, install the correct versions together:
+
+```
+pip install "sphinx>=5.0,<6.0" sphinxcontrib-applehelp sphinxcontrib-devhelp sphinxcontrib-jsmath sphinxcontrib-htmlhelp sphinxcontrib-serializinghtml sphinxcontrib-qthelp sphinx-design "sphinx-external-toc<2" "pydata-sphinx-theme>=0.15.2" "sphinx-jupyterbook-latex<2" "sphinx-book-theme>=1.1.0,<2" "myst-nb<3" "myst-parser<3" "jupyter-book>=0.12.0" "sphinx-thebe>=0.3,<1" sphinx-panels
+```
+
+This command should install compatible versions of the required packages. If there are any issues during installation, we will need to adjust the versions accordingly. Once installed, try building your Jupyter Book again:
+
+```sh
+jb build nia/book/website
+```
+
+If further adjustments are needed, please let me know.
+
+## 44
+
+### `pip install -r requirements.txt && jupyter-book build .`
+
+#### Deploying
+
+[First](https://abikesa.github.io/worthy/intro.html), create a work directory & environment
+
+```sh
+git clone https://github.com/abikesa/workflow && mv workflow new && new/setup_myenv.sh && source myenv/bin/activate 
+```
+
+#### On Netlify
+
+Next, navigate to your project template:
+
+```sh
+git clone https://github.com/the-turing-way/the-turing-way
+mv the-turing-way project
+```
+
+- Publish directory: `project/book/website/_build/html`
+- Base directory: `book/website`
+- Build command: `pip install -r requirements.txt && jupyter-book build .`
+- This will give an error, but after installing key files. So just ignore & follow these instructions:
+
+```sh
+pip uninstall sphinx sphinx-panels jupyter-book sphinxcontrib-applehelp sphinxcontrib-devhelp sphinxcontrib-jsmath sphinxcontrib-htmlhelp sphinxcontrib-serializinghtml sphinxcontrib-qthelp sphinx-design sphinx-external-toc pydata-sphinx-theme sphinx-jupyterbook-latex sphinx-book-theme myst-nb myst-parser
+pip install "sphinx>=5.0,<6.0" sphinxcontrib-applehelp sphinxcontrib-devhelp sphinxcontrib-jsmath sphinxcontrib-htmlhelp sphinxcontrib-serializinghtml sphinxcontrib-qthelp sphinx-design "sphinx-external-toc<2" "pydata-sphinx-theme>=0.15.2" "sphinx-jupyterbook-latex<2" "sphinx-book-theme>=1.1.0,<2" "myst-nb<3" "myst-parser<3" "jupyter-book>=0.12.0" "sphinx-thebe>=0.3,<1" sphinx-panels
+jupyter-book build .
+```
+
+###  `git credential-cache exit`
+
+
+```sh
+git credential-cache exit
+cd home/book/website
+git add ./*
+```
+
 
 ## 45 `wiki-style jb`
 
